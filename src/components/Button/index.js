@@ -15,6 +15,7 @@ const Button = ({ button, sendMessage }) => {
   }
 
   let content = null
+  let quickcardUrl = 'javascript:sap.sf.surj.shell.util.ActionSearchUtil.performAction(' + value + ')'
 
   switch (button.type) {
   case 'web_url':
@@ -23,6 +24,17 @@ const Button = ({ button, sendMessage }) => {
         className='RecastAppButton-Link CaiAppButton-Link' href={value} target='_blank'
         rel='noopener noreferrer'>
         {formattedTitle}
+      </a>
+    )
+    break
+  case 'quickcard':
+    content = (
+      <a
+        className='RecastAppButton-Link CaiAppButton-Link' 
+        href={quickcardUrl}
+        rel='noopener noreferrer'
+      >
+      {formattedTitle}
       </a>
     )
     break
@@ -47,3 +59,4 @@ Button.propTypes = {
 }
 
 export default Button
+
